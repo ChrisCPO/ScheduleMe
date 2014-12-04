@@ -5,8 +5,4 @@ class User < ActiveRecord::Base
 
   has_many :user_location_relationships
   has_many :locations, through: :user_location_relationships
-
-  def build_password
-    SecureRandom.hex(4)
-  end
 end

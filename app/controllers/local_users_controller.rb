@@ -1,6 +1,8 @@
-class LocalUserController < ApplicationController
+class LocalUsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+
   def new
+    @location = Location.find(params[:location_id])
     @user = User.new
   end
 
@@ -27,8 +29,11 @@ class LocalUserController < ApplicationController
   end
 
   def new_user_password
-    user = User.new
-    password = { password: user.build_password }
+    password = { password: build_password }
     password
+  end
+
+  def build_password
+    SecureRandom.hex(4)
   end
 end

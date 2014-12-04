@@ -4,6 +4,9 @@ class Location < ActiveRecord::Base
   belongs_to :user
 
   has_many :user_location_relationships
-
   has_many :users, through: :user_location_relationships
+
+  def add_user(user)
+    self.users << user
+  end
 end

@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    location = current_user.locations.build(location_params)
+    location = Location.new(location_params)
     location.users << current_user
 
     if location.save

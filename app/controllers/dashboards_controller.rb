@@ -1,11 +1,11 @@
 class DashboardsController < ApplicationController
   def show
-    @locations = my_locations
+    @location = my_location
   end
 
   private
 
-  def my_locations
-    current_user.locations
+  def my_location
+    current_user.location
   end
 end

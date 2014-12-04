@@ -29,5 +29,6 @@ class LocalUsersController < ApplicationController
   def new_user_password
     user = User.new
     password = { password: user.build_password }
+    password
   end
 end

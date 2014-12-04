@@ -1,4 +1,4 @@
-class LocalUsersController < ApplicationController
+class LocalUserController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   def new
     @user = User.new

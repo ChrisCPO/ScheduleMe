@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   has_many :locations, through: :user_location_relationships
 
   def build_password
-    rand(24**8).to_s(36)
+    SecureRandom.hex(4)
   end
 end

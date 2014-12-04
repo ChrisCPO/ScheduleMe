@@ -2,17 +2,16 @@ class LocalUsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def new
-    @location = Location.find(params[:location_id])
+    @location = find_location
     @user = User.new
   end
 
   def create
     user = sign_up(user_params)
-    location = find_location
-    location.add_user(user)
+    user.location = find_location
 
     if user.valid?
-      redirect_to location_path(location)
+      redirect_to location_path
     else
       redirect_to new_location_local_user_path(location)
     end
@@ -21,7 +20,10 @@ class LocalUsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email).merge(new_user_password)
+    params.
+      require(:user).
+      permit(:username, :email).
+      merge(new_user_password)
   end
 
   def find_location

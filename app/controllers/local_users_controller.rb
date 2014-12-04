@@ -35,6 +35,6 @@ class LocalUsersController < ApplicationController
   end
 
   def build_password
-    SecureRandom.hex(4)
+    SecureRandom.hex(8)
   end
 end

@@ -29,8 +29,7 @@ class LocalUsersController < ApplicationController
   end
 
   def new_user_password
-    password = { password: build_password }
-    password
+    { password: build_password }
   end
 
   def build_password

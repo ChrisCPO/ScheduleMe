@@ -1,6 +1,6 @@
 <h1> Add New Employee </h1>
 
-<%= form_for @user, url: location_local_user_url do |form| %>
+<%= form_for [@location, @user]do |form| %>
 
   <div>
     <%= form.label "Enter Employees Name", :username %>

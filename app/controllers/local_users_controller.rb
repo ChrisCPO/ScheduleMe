@@ -6,7 +6,7 @@ class LocalUsersController < ApplicationController
   def create
     user = sign_up(user_params)
     location = find_location
-    location.users << user
+    location.add_user(user)
 
     if user.valid?
       redirect_to location_path(location)
@@ -18,7 +18,7 @@ class LocalUsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email).merge!(new_user_password)
+    params.require(:user).permit(:username, :email).merge(new_user_password)
   end
 
   def display_password(password)

@@ -17,9 +17,9 @@ class LocalUsersController < ApplicationController
 
   def user_params
     user = User.new
-    password = {password: user.build_password}
+    password = { password: user.build_password }
     display_password(password)
-    params.require(:user).permit(:username, :email ).merge!(password)
+    params.require(:user).permit(:username, :email).merge!(password)
   end
 
   def display_password(password)

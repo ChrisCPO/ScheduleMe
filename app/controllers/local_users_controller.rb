@@ -1,4 +1,5 @@
 class LocalUsersController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
   def new
     @user = User.new
   end
@@ -21,10 +22,6 @@ class LocalUsersController < ApplicationController
     params.require(:user).permit(:username, :email).merge(new_user_password)
   end
 
-  def display_password(password)
-    puts "#{password.inspect} <<<<<<<<< NEW PASSWORD"
-  end
-
   def find_location
     Location.find(params[:location_id])
   end
@@ -32,7 +29,5 @@ class LocalUsersController < ApplicationController
   def new_user_password
     user = User.new
     password = { password: user.build_password }
-    display_password(password)
-    password
   end
 end

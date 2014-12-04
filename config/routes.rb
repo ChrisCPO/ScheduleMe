@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :dashboards, only: [:show]
-  resources :locations, only: [:new, :create, :show]
+  resources :locations, only: [:new, :create, :show] do
+    resource :local_user, only: [:new, :create]
+  end
 end

@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
 
   def create
     location = current_user.locations.build(location_params)
+    location.users << current_user
+
     if location.save
       redirect_to location_path(location)
     else

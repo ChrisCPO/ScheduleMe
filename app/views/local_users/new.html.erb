@@ -1,0 +1,19 @@
+<h1> Add New Employee </h1>
+
+<%= form_for @user, url: location_local_user_url do |form| %>
+
+  <div>
+    <%= form.label "Enter Employees Name", :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div>
+    <%= form.label "Enter Employees E-Mail", :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.submit "Add User" %>
+  </div>
+
+<% end %>

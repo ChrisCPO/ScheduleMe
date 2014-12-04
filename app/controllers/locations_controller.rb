@@ -5,10 +5,10 @@ class LocationsController < ApplicationController
 
   def create
     location = Location.new(location_params)
-    location.users << current_user
+    location.add_user(current_user)
 
     if location.save
-      redirect_to location_path(location)
+      redirect_to location
     else
       render :new
     end

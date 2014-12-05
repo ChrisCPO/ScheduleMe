@@ -4,9 +4,11 @@ class LocationsController < ApplicationController
   end
 
   def create
-    location = current_user.locations.build(location_params)
+    location = Location.new(location_params)
+    location.add_user(current_user)
+
     if location.save
-      redirect_to location_path(location)
+      redirect_to location
     else
       render :new
     end

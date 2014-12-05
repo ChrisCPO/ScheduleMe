@@ -1,0 +1,17 @@
+<h1>Add New Employee</h1>
+
+<%= form_for [@location, @user] do |form| %>
+  <div>
+    <%= form.label "Enter Employee's Name", :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div>
+    <%= form.label "Enter Employee's Email", :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.submit "Add User" %>
+  </div>
+<% end %>

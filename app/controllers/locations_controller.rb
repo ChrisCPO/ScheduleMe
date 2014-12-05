@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
   def create
     location = Location.new(location_params)
     location.add_user(current_user)
+    make_user_owner
 
     if location.save
       redirect_to location
@@ -26,5 +27,9 @@ class LocationsController < ApplicationController
 
   def find_location
     Location.find(params[:id])
+  end
+
+  def make_user_owner
+    current_user.toggle(:owner)
   end
 end

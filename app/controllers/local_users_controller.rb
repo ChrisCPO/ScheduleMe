@@ -11,7 +11,7 @@ class LocalUsersController < ApplicationController
     user.location = find_location
 
     if user.valid?
-      redirect_to location_path
+      redirect_to user.location
     else
       redirect_to new_location_local_user_path(location)
     end
@@ -23,18 +23,10 @@ class LocalUsersController < ApplicationController
     params.
       require(:user).
       permit(:username, :email).
-      merge(new_user_password)
+      merge(User.new_password)
   end
 
   def find_location
     Location.find(params[:location_id])
-  end
-
-  def new_user_password
-    { password: build_password }
-  end
-
-  def build_password
-    SecureRandom.hex(8)
   end
 end

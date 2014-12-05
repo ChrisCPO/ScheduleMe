@@ -1,3 +1,5 @@
 <h3> <%= @location.name %> </h3>
 
-<%= link_to "Add Employee", new_location_user_path(@location) %>
+<% if current_user.owner? %>
+  <%= link_to "Add Employee", new_location_user_path(@location) %>
+<% end %>

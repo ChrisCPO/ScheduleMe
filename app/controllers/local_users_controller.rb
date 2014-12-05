@@ -1,5 +1,6 @@
 class LocalUsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  before_action :require_owner, only: [:new, :create]
 
   def new
     @location = find_location

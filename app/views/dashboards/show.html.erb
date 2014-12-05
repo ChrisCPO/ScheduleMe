@@ -2,4 +2,6 @@
 
 <%= link_to "Register New Location", new_location_path %>
 
-<%= current_user.location %>
+<% if current_user.location %>
+  <%= render current_user.location %>
+<% end %>

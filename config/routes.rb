@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   constraints Monban::Constraints::SignedOut.new do
-    root "users#new"
+    root "sessions#new"
   end
 
   resources :dashboards, only: [:show]

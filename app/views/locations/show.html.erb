@@ -1,8 +1,12 @@
 <h3> <%= @location.name %> </h3>
 
-<% if current_user.owner? %>
   <div>
-  <p> You are the Owner of this Location </p>
-  <%= link_to "Add Employee", new_location_user_path(@location) %>
+    <% if current_user.owner? %>
+      <p> You are the Owner of this Location </p>
+      <%= link_to "Add Employee", new_location_user_path(@location) %>
+    <% end %>
   </div>
-<% end %>
+
+  <div>
+    <%= link_to "View Employes", location_users_path(@location) %>
+  </div>

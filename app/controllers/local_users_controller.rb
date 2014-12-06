@@ -11,11 +11,16 @@ class LocalUsersController < ApplicationController
     user = sign_up(user_params)
     user.location = find_location
 
-    if user.valid?
+    if user.save
       redirect_to user.location
     else
-      redirect_to new_location_local_user_path(location)
+      redirect_to :back
     end
+  end
+
+  def index
+    location = find_location
+    @users = User.where(location_id: location.id)
   end
 
   private

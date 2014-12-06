@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def require_owner_user
-    unless current_user.primary?
+  def require_owner
+    unless current_user.owner?
       redirect_to :back
     end
   end

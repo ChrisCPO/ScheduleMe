@@ -14,7 +14,7 @@ class LocalUsersController < ApplicationController
     user.location = find_location
 
     if user.save
-      UserMailer.mail_login_info(user, password)
+      UserMailer.mail_login_info(user, password).deliver
       redirect_to user.location
     else
       @user = user

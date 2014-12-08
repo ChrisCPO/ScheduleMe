@@ -2,6 +2,8 @@ class LocalUsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :require_owner, only: [:new, :create]
 
+  attr_accessor :password
+
   def new
     @location = find_location
     @user = User.new
@@ -12,6 +14,7 @@ class LocalUsersController < ApplicationController
     user.location = find_location
 
     if user.save
+      UserMailer.mail_login_info(user, password)
       redirect_to user.location
     else
       @user = user
@@ -31,7 +34,11 @@ class LocalUsersController < ApplicationController
     params.
       require(:user).
       permit(:username, :email).
-      merge(User.new_password)
+      merge(get_password)
+  end
+
+  def get_password
+    @password = User.new_password
   end
 
   def find_location

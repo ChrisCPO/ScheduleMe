@@ -14,7 +14,7 @@ class LocalUsersController < ApplicationController
     user.location = find_location
 
     if user.save
-       redirect_to user.location
+      redirect_to user.location
     else
       render :new
     end

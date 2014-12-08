@@ -2,11 +2,11 @@
 
   <div>
     <% if current_user.owner? %>
-      <p> You are the Owner of this Location </p>
+      <p> You are the owner of this location </p>
       <%= link_to "Add Employee", new_location_user_path(@location) %>
     <% end %>
   </div>
 
   <div>
-    <%= link_to "View Employes", location_users_path(@location) %>
+    <%= link_to "View Employees", location_users_path(@location) %>
   </div>

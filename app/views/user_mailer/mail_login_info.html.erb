@@ -1,2 +1,1 @@
-<p> Your new Password is "<%= @password[:password] %>" </p>
-<p> log in <%= url_for(host: "scheduleME.com", controller: "sessions", action: "new") %> </p>
+<p> <%= edit_user_password_reset_url(@user, @password) %> </p>

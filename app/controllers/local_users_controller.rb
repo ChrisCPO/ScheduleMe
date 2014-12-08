@@ -2,8 +2,6 @@ class LocalUsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :require_owner, only: [:new, :create]
 
-  attr_accessor :password
-
   def new
     @location = find_location
     @user = User.new
@@ -14,11 +12,12 @@ class LocalUsersController < ApplicationController
     user.location = find_location
 
     if user.save
+      password = PasswordReset.create(user: user)
       UserMailer.mail_login_info(user, password).deliver
       redirect_to user.location
     else
-      @user = user
       @location = user.location
+      @user = user
       render :new
     end
   end
@@ -29,6 +28,8 @@ class LocalUsersController < ApplicationController
   end
 
   private
+
+  attr_accessor :password
 
   def user_params
     params.

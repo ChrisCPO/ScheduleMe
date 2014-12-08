@@ -8,14 +8,14 @@ class LocalUsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @location = find_location
     user = sign_up(user_params)
     user.location = find_location
 
     if user.save
       redirect_to user.location
     else
+      @user = user
+      @location = user.location
       render :new
     end
   end

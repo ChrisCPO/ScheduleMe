@@ -9,17 +9,20 @@ class PasswordResetsController < ApplicationController
     user = User.find_by(email: params[:password_reset][:email])
     if user
       password_reset = PasswordReset.create(user: user)
-      PasswordResetMailer.change_password(password_reset).deliver # NOTE: You'll want to delay this
+      PasswordResetMailer.change_password(password_reset).deliver 
+      # NOTE: You'll want to delay this
     end
   end
 
   def edit
-    @password_reset = PasswordReset.find_by!(token: params[:id], user_id: params[:user_id])
+    @password_reset = PasswordReset.find_by!(token: params[:id],
+                                             user_id: params[:user_id])
     @user = @password_reset.user
   end
 
   def update
-    @password_reset = PasswordReset.find_by!(token: params[:id], user_id: params[:user_id])
+    @password_reset = PasswordReset.find_by!(token: params[:id],
+                                             user_id: params[:user_id])
     @user = @password_reset.user
 
     reset_password(@user, params[:password_reset][:password])

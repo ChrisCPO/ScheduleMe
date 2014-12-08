@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :password_resets, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create ]
+  resources :users, only: [:new, :create]
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard

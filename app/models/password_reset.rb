@@ -17,6 +17,6 @@ class PasswordReset < ActiveRecord::Base
   end
 
   def generate_token
-    SecureRandom.hex(20).encode('UTF-8')
+    SecureRandom.hex(20).encode("UTF-8")
   end
 end

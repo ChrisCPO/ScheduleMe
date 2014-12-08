@@ -7,7 +7,7 @@ class PasswordResetMailer < ActionMailer::Base
 
     mail(
       to: @user.email,
-      subject: 'Change your password'
+      subject: "Change your password"
     )
   end
 end

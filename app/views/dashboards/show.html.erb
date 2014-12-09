@@ -9,7 +9,7 @@
 </div>
 
 <div class="location">
-  <% if current_user.location %>
+  <% if current_user_has_location? %>
     <%= render current_user.location %>
   <% end %>
 <div>

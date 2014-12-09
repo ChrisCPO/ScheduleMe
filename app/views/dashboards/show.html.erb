@@ -1,7 +1,15 @@
 <h1> Your dashboard </h1>
 
-<%= link_to "Register New Location", new_location_path %>
+<div>
+  <%= link_to "Edit My info", edit_user_path(current_user) %>
+</div>
 
-<% if current_user.location %>
-  <%= render current_user.location %>
-<% end %>
+<div>
+  <%= link_to "Register New Location", new_location_path %>
+</div>
+
+<div class="location">
+  <% if current_user.location %>
+    <%= render current_user.location %>
+  <% end %>
+<div>

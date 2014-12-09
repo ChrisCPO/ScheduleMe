@@ -16,9 +16,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(update_params)
+
+    if @user.valid?
+      redirect_to dashboard_path(@user)
+    elsif
+      render :edit
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :username)
+  end
+
+  def update_params
+    params.require(:user).permit(:email, :username)
   end
 end

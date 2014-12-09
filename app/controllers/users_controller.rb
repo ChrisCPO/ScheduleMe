@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     if @user.valid?
       redirect_to dashboard_path(@user)
-    elsif
+    else
       render :edit
     end
   end

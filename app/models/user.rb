@@ -18,7 +18,12 @@ class User < ActiveRecord::Base
     ROLE.first
   end
 
-  def Set_manager
+  def set_manager
     ROLE.last
+  end
+
+  def make_user_owner
+    set_manager
+    toggle(:owner)
   end
 end

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   belongs_to :location
 
-  enum role: {employee: 0,manager: 1}
+  enum role: { employee: 0, manager: 1 }
 
   def self.new_password
     { password: SecureRandom.hex(8) }
@@ -20,6 +20,6 @@ class User < ActiveRecord::Base
 
   def make_user_owner
     set_manager
-    self.toggle(:owner)
+    toggle(:owner)
   end
 end

@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
     set_manager
     toggle(:owner)
   end
+
+  def location?
+    location
+  end
 end

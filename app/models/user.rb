@@ -8,7 +8,13 @@ class User < ActiveRecord::Base
 
   belongs_to :location
 
-  enum role: { employee: 0, manager: 1 }
+  enum role: { unassigned: 0,
+               manager: 1,
+               kitchen: 3,
+               server: 4,
+               server_assistent: 5,
+               bar: 6
+  }
 
   def self.new_password
     { password: SecureRandom.hex(8) }

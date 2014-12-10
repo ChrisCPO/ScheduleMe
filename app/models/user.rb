@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   enum role: { unassigned: 0,
                manager: 1,
+               floor_manager: 2,
                kitchen: 3,
                server: 4,
                server_assistent: 5,

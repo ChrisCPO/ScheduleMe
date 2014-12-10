@@ -8,14 +8,14 @@ class User < ActiveRecord::Base
 
   belongs_to :location
 
-  enum role: { unassigned: 0,
-               manager: 1,
-               floor_manager: 2,
-               kitchen: 3,
-               server: 4,
-               server_assistent: 5,
-               bar: 6
-  }
+  enum role: [ unassigned,
+               manager,
+               floor_manager,
+               kitchen,
+               server,
+               server_assistent,
+               bar
+  ]
 
   def self.new_password
     { password: SecureRandom.hex(8) }
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   def make_user_owner
     set_manager
-    toggle(:owner)
+    self.owner = true
   end
 
   def location?

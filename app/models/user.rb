@@ -30,10 +30,7 @@ class User < ActiveRecord::Base
     location
   end
 
-  def role_index
+  def role_value
     User.roles.to_h.values_at(role.to_s).first.to_i
   end
-
-  private
-
 end

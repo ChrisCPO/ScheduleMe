@@ -23,8 +23,8 @@ class LocalUsersController < ApplicationController
   end
 
   def index
-    location = find_location
-    @users = User.where(location_id: location.id)
+    @location = find_location
+    @users = User.where(location_id: @location.id)
   end
 
   private

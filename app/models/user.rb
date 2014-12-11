@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
   enum role: [ :unassigned,
                :manager,
                :floor_manager,
+               :bar,
                :kitchen,
                :server,
-               :server_assistent,
-               :bar
+               :server_assistent
              ]
 
   def self.new_password
@@ -29,4 +29,11 @@ class User < ActiveRecord::Base
   def location?
     location
   end
+
+  def role_index
+    my_role = self.role.to_s
+    User.roles.to_h.values_at(my_role).first.to_i
+  end
+
+  private
 end

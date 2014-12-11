@@ -1,1 +1,5 @@
-<p> Employee <%= employee.username.capitalize %> </p>
+<div>
+  <p> Employee <%= employee.username.capitalize %> </p>
+  <p> <%= employee.role.capitalize %> </p>
+  <p> <%= link_to "Edit #{employee.username.capitalize}" ,edit_user_path(employee) %> </p>
+</div>

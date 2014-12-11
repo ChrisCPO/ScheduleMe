@@ -1,1 +1,7 @@
-<%= render partial: "employee", collection: @users %>
+<h2> <%= @location.name %> Employees </h2>
+<% if current_user.manager? %>
+  <%= render partial: "employee", collection: @users %>
+<% else %>
+  <%= render @users %>
+<% end %>
+

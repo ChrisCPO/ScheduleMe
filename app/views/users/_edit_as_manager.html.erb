@@ -1,0 +1,21 @@
+<%= form_for @user do |form| %>
+
+  <%= render "errors" %>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+  <div>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+  <div>
+    <%= form.label :role%>
+    <%# <%= select(:user, :role, User.roles) %>
+    <%= select(:user, :role, User.roles, selected: @user.role_index) %>
+  </div>
+  <div>
+    <%= form.submit "Update employee" %>
+  </div>
+<% end %>

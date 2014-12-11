@@ -31,9 +31,9 @@ class User < ActiveRecord::Base
   end
 
   def role_index
-    my_role = self.role.to_s
-    User.roles.to_h.values_at(my_role).first.to_i
+    User.roles.to_h.values_at(role.to_s).first.to_i
   end
 
   private
+
 end

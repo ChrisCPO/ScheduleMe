@@ -50,6 +50,6 @@ class UsersController < ApplicationController
   end
 
   def update_role_to_i
-    {role: params[:user][:role].to_i}
+    { role: params[:user][:role].to_i }
   end
 end

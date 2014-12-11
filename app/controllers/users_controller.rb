@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(update_params)
-    puts update_params
 
     if @user.valid?
       redirect_to dashboard_path(@user)

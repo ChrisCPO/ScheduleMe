@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     { password: SecureRandom.hex(8) }
   end
 
-  def make_user_owner
+  def make_user_owner!
     update(:role, 1)
     self.owner = true
   end

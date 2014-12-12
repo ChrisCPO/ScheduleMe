@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   belongs_to :location
 
-  delegate :location_name, to: :location
+  delegate :name, to: :location, prefix: true
 
   enum role: [ :unassigned,
                :manager,

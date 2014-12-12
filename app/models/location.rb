@@ -3,7 +3,6 @@ class Location < ActiveRecord::Base
   has_one :owner
   has_many :users
 
-
   def location_name
     name
   end

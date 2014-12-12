@@ -1,11 +1,7 @@
 <h3> Edit <%= @user.username.capitalize %> Info </h3>
 
 <% if current_user.manager? %>
-
   <%= render "edit_as_manager" %>
-
 <% else %>
-
   <%= render "edit_as_user" %>
-
 <% end %>

@@ -8,6 +8,8 @@
 
   <div>
     <% if signed_in? %>
+      <%= link_to current_user.location.name,
+        location_path(current_user.location) %>
       <%= link_to "My dashboard", root_path %>
       <%= link_to "Sign out", session_path, method: :delete %>
     <% else %>

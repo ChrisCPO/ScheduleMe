@@ -12,7 +12,6 @@
   </div>
   <div>
     <%= form.label :role%>
-    <%# <%= select(:user, :role, User.roles) %>
     <%= select(:user, :role, User.roles, selected: @user.role_value) %>
   </div>
   <div>

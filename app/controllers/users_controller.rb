@@ -34,12 +34,17 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :username)
+    params.require(:user).permit(
+                                  :email,
+                                  :password,
+                                  :username
+                                )
   end
 
   def update_params
     if current_user.manager?
-      params.require(:user).permit(:email,
+      params.require(:user).permit(
+                                   :email,
                                    :username,
                                    :role
                                   ).update(update_role_to_i)

@@ -1,5 +1,5 @@
 <div>
-  <p> Employee <%= employee.username.capitalize %> </p>
-  <p> <%= employee.role.capitalize %> </p>
-  <p> <%= link_to "Edit #{employee.username.capitalize}", edit_user_path(employee) %> </p>
+  <p> Employee <%= employee.formatted_name %> </p>
+  <p> <%= employee.formatted_role %> </p>
+  <p> <%= link_to "Edit #{employee.formatted_name}", edit_user_path(employee) %> </p>
 </div>

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   belongs_to :location
 
-  delegate :name, to: :location, prefix: true
+  delegate :name, to: :location, prefix: true, allow_nil: true
 
   enum role: [ :unassigned,
                :manager,
@@ -36,11 +36,11 @@ class User < ActiveRecord::Base
     User.roles[role]
   end
 
-  def formated_name
-    name.capitalize
+  def formatted_name
+    username.capitalize
   end
 
-  def formated_role
+  def formatted_role
     role.capitalize
   end
 end

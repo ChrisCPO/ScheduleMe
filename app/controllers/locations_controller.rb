@@ -26,6 +26,6 @@ class LocationsController < ApplicationController
   end
 
   def find_location
-    Location.find(params[:id])
+    @location ||= Location.find(params[:id])
   end
 end

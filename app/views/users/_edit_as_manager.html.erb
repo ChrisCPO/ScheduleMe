@@ -11,7 +11,7 @@
     <%= form.text_field :username %>
   </div>
   <div>
-    <%= form.label :role%>
+    <%= form.label :role %>
     <%= select(:user, :role, User.roles, selected: @user.role_value) %>
   </div>
   <div>

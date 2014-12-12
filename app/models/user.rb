@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   belongs_to :location
 
+  delegate :location_name, to: :location
+
   enum role: [ :unassigned,
                :manager,
                :floor_manager,
@@ -31,6 +33,6 @@ class User < ActiveRecord::Base
   end
 
   def role_value
-    User.roles.to_h.values_at(role.to_s).first.to_i
+    User.roles[role]
   end
 end

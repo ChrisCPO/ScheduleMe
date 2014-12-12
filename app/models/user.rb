@@ -35,4 +35,12 @@ class User < ActiveRecord::Base
   def role_value
     User.roles[role]
   end
+
+  def formated_name
+    name.capitalize
+  end
+
+  def formated_role
+    role.capitalize
+  end
 end

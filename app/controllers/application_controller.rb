@@ -6,8 +6,14 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def require_owner
-    unless current_user.owner?
+  def require_manager
+    unless current_user.manager?
+      redirect_to :back
+    end
+  end
+
+  def user_has_no_location
+    unless current_user.location?
       redirect_to :back
     end
   end

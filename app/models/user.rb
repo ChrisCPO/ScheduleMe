@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :role, presence: true
+  validates_with OwnerValidator
 
   has_one :password_reset
 
@@ -34,6 +35,10 @@ class User < ActiveRecord::Base
 
   def role_value
     User.roles[role]
+  end
+
+  def can_add_employees?
+    manager?
   end
 
   def formatted_name

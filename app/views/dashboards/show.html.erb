@@ -5,7 +5,9 @@
 </div>
 
 <div>
-  <%= link_to "Register New Location", new_location_path %>
+  <% unless current_user.location? %>
+    <%= link_to "Register New Location", new_location_path %>
+  <% end %>
 </div>
 
 <div class="location">

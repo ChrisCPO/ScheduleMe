@@ -29,16 +29,16 @@ class User < ActiveRecord::Base
     self.owner = true
   end
 
-  def manager_and_owner?
-    manager? && owner?
-  end
-
   def location?
     location
   end
 
   def role_value
     User.roles[role]
+  end
+
+  def can_add_employees?
+    manager?
   end
 
   def formatted_name

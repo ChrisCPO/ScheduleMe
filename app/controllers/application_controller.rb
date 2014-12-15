@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def user_no_location
+  def user_has_no_location
     unless current_user.location?
       redirect_to :back
     end

@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     self.owner = true
   end
 
+  def manager_and_owner?
+    manager? && owner?
+  end
+
   def location?
     location
   end

@@ -1,0 +1,11 @@
+<div>
+  <% if current_user.manager_and_owner? %>
+      <p> You are the owner of <%= location.name %> </p>
+      <%= link_to "Add Employee", new_location_user_path(location) %>
+    <% elsif current_user.manager? %>
+      <p> You are a manager of <%= location.name %> </p>
+      <%= link_to "Add Employee", new_location_user_path(location) %>
+    <% else %>
+      <p> You are a <%= current_user.role %> at this location </p>
+  <% end %>
+</div>

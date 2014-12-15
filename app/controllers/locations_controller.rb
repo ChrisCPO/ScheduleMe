@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :user_no_location, only: [:create, :new]
+  before_action :user_has_no_location, only: [:create, :new]
   def new
     @location = Location.new
   end

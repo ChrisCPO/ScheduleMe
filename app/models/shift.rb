@@ -9,6 +9,6 @@ class Shift < ActiveRecord::Base
   belongs_to :location
 
   def date_words_format
-    self.shift_date.strftime("%a, %b %e %y")
+    shift_date.strftime("%a, %b %e %y")
   end
 end

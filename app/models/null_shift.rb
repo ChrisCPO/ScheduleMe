@@ -14,6 +14,6 @@ class NullShift
   end
 
   def date_words_format
-    self.shift_date.strftime("%a, %b %e %y")
+    shift_date.strftime("%a, %b %e %y")
   end
 end

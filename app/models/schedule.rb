@@ -5,7 +5,7 @@ class Schedule
   attr_accessor :dates
   attr_reader :user
 
-  def initialize(user, attributes, dates=nil)
+  def initialize(user, attributes, dates = nil)
     @user = user
     @dates = dates
     super(attributes)

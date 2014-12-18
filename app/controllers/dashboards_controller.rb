@@ -13,7 +13,7 @@ class DashboardsController < ApplicationController
     shifts
     shift_dates.map do |shift_date|
       shifts.detect { |shift| shift.shift_date == shift_date.to_date } ||
-        create_null_sift(shift_date)
+        create_null_shift(shift_date)
     end
   end
 
@@ -21,7 +21,7 @@ class DashboardsController < ApplicationController
     Shift.where(shift_date: shift_dates)
   end
 
-  def create_null_sift(shift_date)
+  def create_null_shift(shift_date)
     NullShift.new(shift_date: shift_date)
   end
 end

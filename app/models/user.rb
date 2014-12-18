@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 
   has_one :password_reset
 
+  has_many :shifts
+  accepts_nested_attributes_for :shifts
+
   belongs_to :location
 
   delegate :name, to: :location, prefix: true, allow_nil: true
@@ -35,10 +38,6 @@ class User < ActiveRecord::Base
 
   def role_value
     User.roles[role]
-  end
-
-  def can_add_employees?
-    manager?
   end
 
   def formatted_name

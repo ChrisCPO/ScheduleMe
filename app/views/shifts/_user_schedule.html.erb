@@ -1,0 +1,12 @@
+<table class="table">
+  <tr>
+    <th>Shift Date</th>
+    <th>Shift Start Time</th>
+  </tr>
+  <% schedule.each do |shift| %>
+    <tr>
+      <td><%= shift.date_words_format %></td>
+      <td><%= shift.shift_time %></td>
+    </tr>
+  <% end %>
+</table>

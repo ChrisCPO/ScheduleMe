@@ -1,0 +1,35 @@
+<div>
+  <h4> <%= @schedule.user.formatted_name %> </h4>
+  <h4> <%= @schedule.user.formatted_role %> </h4>
+</div>
+
+<p> week of <%= @schedule.start_of_week.strftime("%m/%d/%y") %>
+--> <%= @schedule.end_of_week.strftime("%m/%d/%y") %> </p>
+
+<%= form_for @schedule,
+  url: user_shifts_path(@schedule.user),
+  method:"update" do |form| %>
+
+  <table class="table">
+    <tr>
+      <th> Name </th>
+      <%= render partial: "header_dates", collection: @schedule.week_days %>
+    </tr>
+    <tr>
+      <td> <%= @schedule.user.formatted_name %> </td>
+
+      <%= form.fields_for :shifts do |shift_form|%>
+        <td>
+          <div>
+          <%= shift_form.label "start time" %>
+          </div>
+          <div>
+          <%= shift_form.text_field :shift_time, class:"shift_form" %>
+          </div>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+
+  <%= form.submit "create" %>
+<% end %>

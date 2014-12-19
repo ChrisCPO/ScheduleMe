@@ -21,13 +21,12 @@ class ShiftsController < ApplicationController
   def schedule_params
     params.require(:schedule).
       permit(shifts_attributes: [
-                                 :notes,
-                                 :shift_date,
-                                 :shift_time,
-                                 :user_id
-                                ]
-            )
-
+                                  :notes,
+                                  :shift_date,
+                                  :shift_time,
+                                  :user_id
+      ]
+  )
   end
 
   def find_user

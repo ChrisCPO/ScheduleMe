@@ -1,16 +1,3 @@
-<table class="table">
-  <tr class="single-schedule">
-    <th class="first-row clearfix">Shift Date</th>
-    <th class="second-row clearfix">Shift Start Time</th>
-  </tr>
-  <% schedule.each do |shift| %>
-    <tr >
-      <td class="first-row"> <%= shift.shift_date.strftime("%a, %e %b %Y") %> </td>
-      <td class="second-row"> <%= shift.shift_time %> </td>
-    </tr>
-  <% end %>
-</table>
-
 <table>
   <tr>
     <th>Shift Date</th>

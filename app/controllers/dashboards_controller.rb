@@ -10,7 +10,6 @@ class DashboardsController < ApplicationController
   end
 
   def user_shifts
-    shifts
     shift_dates.map do |shift_date|
       shifts.detect { |shift| shift.shift_date == shift_date.to_date } ||
         create_null_shift(shift_date)

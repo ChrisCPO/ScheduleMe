@@ -4,8 +4,8 @@ class Location < ActiveRecord::Base
   has_one :owner
   has_one :schedule
 
-  has_many :users
   has_many :shifts, through: :schedules
+  has_many :users
 
   def add_user(user)
     users << user

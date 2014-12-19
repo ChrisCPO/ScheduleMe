@@ -1,10 +1,10 @@
 class Shift < ActiveRecord::Base
-  validates :user_id, presence: true
   validates :shift_date, presence: true
   validates :shift_time, presence: true
+  validates :user_id, presence: true
 
-  belongs_to :user
   belongs_to :schedule
+  belongs_to :user
 
   belongs_to :location
 

@@ -8,4 +8,12 @@ module ApplicationHelper
       "You are a #{current_user.role}"
     end
   end
+
+  def time_slashes
+    strftime("%m/%d/%y")
+  end
+
+  def time_in_table
+    strftime("%a, %e %b %Y")
+  end
 end

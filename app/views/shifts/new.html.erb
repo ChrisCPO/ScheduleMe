@@ -3,8 +3,8 @@
   <h4> <%= @schedule.user.formatted_role %> </h4>
 </div>
 
-<p> week of <%= @schedule.start_of_week.time_slashes %>
---> <%= @schedule.end_of_week.time_slashes %> </p>
+<p> week of <%= @schedule.start_of_week.strftime("%m/%d/%y") %>
+-- <%= @schedule.end_of_week.strftime("%m/%d/%y")%> </p>
 
 <%= form_for @schedule,
   url: user_shifts_path(@schedule.user),

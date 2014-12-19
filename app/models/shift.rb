@@ -7,8 +7,4 @@ class Shift < ActiveRecord::Base
   belongs_to :user
 
   belongs_to :location
-
-  def date_words_format
-    shift_date.strftime("%a, %b %e %y")
-  end
 end

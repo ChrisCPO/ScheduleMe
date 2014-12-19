@@ -34,16 +34,11 @@ class Schedule
     DateTime.now.end_of_week
   end
 
-  def location
-    user.location
-  end
-
   def user=(new_user)
     @user = new_user
   end
 
   def save
     @shifts.each(&:save)
-    @shifts.each { |shift| puts shift.errors.full_messages }
   end
 end

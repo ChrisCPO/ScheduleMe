@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   has_one :password_reset
 
   has_many :shifts
-  accepts_nested_attributes_for :shifts
 
   belongs_to :location
 

@@ -1,6 +1,7 @@
 class ShiftsController < ApplicationController
   def new
-    shifts = Array.new(7) { Shifts.new }
+    user = User.find(params[:user_id])
+    shifts = Array.new(7) { Shift.new }
     @schedule = Schedule.new(user, shifts: shifts)
   end
 

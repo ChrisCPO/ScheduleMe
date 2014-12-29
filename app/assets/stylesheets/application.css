@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+table {
+  text-align: center;
+  padding: 0.25em;
+  background-color: black;
+  font-size: 85%;
+}
+
+td,th {
+  padding: 1em;
+  border: solid black 1px;
+  background-color: white;
+}
+
+td.single-schedule {
+  padding: 1em;
+  margin: 0;
+  border: solid black 1px;
+  background-color: white;
+  float: left;
+}
+
+th.single-schedule {
+  padding: 1em;
+  margin: 0;
+  border: solid black 1px;
+  background-color: white;
+  float: left;
+}
+
+.tr {
+  float: left;
+}
+
+.shift_form {
+  width: 50px;
+}

@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     root "sessions#new"
   end
 
+  resources :users, only: [] do
+    resources :shifts, only: [:new, :create]
+  end
+
   resources :dashboards, only: [:show]
   resources :locations, only: [:new, :create, :show] do
     resources :users, only: [:new, :create, :index], controller: :local_users

@@ -1,8 +1,8 @@
 <div>
   <div>
     <p> <%= user_tagline(@location) %> </p>
-    <% if current_user.can_add_employees? %>
-      <%= link_to "Add Employee", new_location_user_path(location) %>
+    <% if current_user.manager? %>
+      <%= link_to "Add Employee", new_location_user_path(@location) %>
     <% end %>
   </div>
 </div>

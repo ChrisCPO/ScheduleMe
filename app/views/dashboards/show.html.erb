@@ -13,5 +13,9 @@
 <div class="location">
   <% if current_user.location? %>
     <%= render current_user.location %>
+    <%= current_user.role %>
+    <div>
+      <%= render "shifts/user_schedule", {schedule: @schedule} %>
+    </div>
   <% end %>
 <div>

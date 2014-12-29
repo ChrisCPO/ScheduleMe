@@ -14,7 +14,7 @@
  *= require_self
  */
 
-.table {
+table {
   text-align: center;
   padding: 0.25em;
   background-color: black;
@@ -27,12 +27,20 @@ td,th {
   background-color: white;
 }
 
-.td,.th {
+td.single-schedule {
   padding: 1em;
   margin: 0;
   border: solid black 1px;
   background-color: white;
-  display: block;
+  float: left;
+}
+
+th.single-schedule {
+  padding: 1em;
+  margin: 0;
+  border: solid black 1px;
+  background-color: white;
+  float: left;
 }
 
 .tr {

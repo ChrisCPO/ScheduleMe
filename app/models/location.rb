@@ -1,7 +1,6 @@
 class Location < ActiveRecord::Base
   validates :name, presence: true
 
-  has_one :owner
   has_one :schedule
 
   has_many :shifts, through: :schedules

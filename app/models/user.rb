@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :role, presence: true
-  validates_with OwnerValidator
+  validates_with OwnerValidator, unless: :setting_owner?
 
   has_one :password_reset
 
@@ -27,8 +27,10 @@ class User < ActiveRecord::Base
   end
 
   def make_user_owner!
-    update(:role, 1)
+    @setting_owner = true
     self.owner = true
+    self.role = 1
+    save
   end
 
   def location?
@@ -45,5 +47,13 @@ class User < ActiveRecord::Base
 
   def formatted_role
     role.capitalize
+  end
+
+  private
+
+  attr_accessor :setting_owner
+
+  def setting_owner?
+    @setting_owner ||= false
   end
 end

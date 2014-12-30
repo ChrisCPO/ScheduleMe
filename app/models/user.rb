@@ -34,7 +34,11 @@ class User < ActiveRecord::Base
   end
 
   def location?
-    location
+    if location == nil || false
+      false
+    else
+      true
+    end
   end
 
   def role_value

@@ -8,7 +8,7 @@
 
   <div>
     <% if signed_in? %>
-      <% if current_user.location %>
+      <% if current_user.location? %>
         <% link_to current_user.location_name,
           location_path(current_user.location) %>
       <% end %>

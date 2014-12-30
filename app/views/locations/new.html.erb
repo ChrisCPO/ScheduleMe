@@ -1,6 +1,9 @@
 <h1> Add New Location </h1>
 
 <%= form_for @location do |form| %>
+
+  <%= render partial: "form_errors/errors", locals: {object: @location} %>
+
   <div>
     <%= form.label :name %>
     <%= form.text_field :name %>

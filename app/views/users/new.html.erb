@@ -1,6 +1,6 @@
 <%= form_for @user do |form| %>
 
-  <%= render "errors" %>
+  <%= render partial: "form_errors/errors", locals: {object: @user} %>
 
   <div>
     <%= form.label :email %>

@@ -20,10 +20,7 @@ ActiveRecord::Schema.define(version: 20141215225242) do
     t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
-
-  add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
 
   create_table "password_resets", force: true do |t|
     t.integer  "user_id"
@@ -33,12 +30,6 @@ ActiveRecord::Schema.define(version: 20141215225242) do
   end
 
   add_index "password_resets", ["user_id"], name: "index_password_resets_on_user_id", using: :btree
-
-  create_table "schedules", force: true do |t|
-    t.integer  "location_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "shifts", force: true do |t|
     t.integer  "user_id",    null: false

@@ -4,5 +4,6 @@
     <% if current_user.manager? %>
       <%= link_to "Add Employee", new_location_user_path(@location) %>
     <% end %>
+    <%= link_to "View Schedule", location_schedule_path(@location) %>
   </div>
 </div>

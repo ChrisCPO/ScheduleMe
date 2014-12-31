@@ -1,0 +1,21 @@
+<p> week of <%= @shifts[0][0].shift_date.beginning_of_week.strftime("%m/%d/%y") %>
+-- <%= @shifts[0][0].shift_date.end_of_week.strftime("%m/%d/%y")%> </p>
+
+<table>
+  <tr>
+    <th> name </th>
+  <% @shifts.first.each do |shift| %>
+      <th><%= shift.shift_date.strftime("%a, %e %b %Y") %></th>
+  <% end %>
+  </tr>
+
+  <tr>
+  <% @shifts.each do |shifts| %>
+    <td> <%= shifts.first.user.username %> </td>
+
+    <% shifts.each do |shift| %>
+      <td> <%= shift.shift_time %> </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>

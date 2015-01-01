@@ -1,8 +1,11 @@
 class NullShift
-  attr_reader :shift_date
+  attr_reader :shift_date, :user
+
+  NA = "NA"
 
   def initialize(attributes)
     @shift_date = attributes[:shift_date]
+    @user = attributes[:user] ||= NA
   end
 
   def shift_time

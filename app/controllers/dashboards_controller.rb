@@ -17,6 +17,6 @@ class DashboardsController < ApplicationController
   end
 
   def shifts
-    Shift.where(shift_date: shift_dates)
+    Shift.where(shift_date: shift_dates).where(user_id: current_user)
   end
 end

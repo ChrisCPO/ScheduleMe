@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   resources :dashboards, only: [:show]
   resources :locations, only: [:new, :create, :show] do
     resources :users, only: [:new, :create, :index], controller: :local_users
-    resource :schedule, only: [:show]
+    resource :schedule, only: [:show, :create]
   end
 end

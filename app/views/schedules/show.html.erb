@@ -1,3 +1,15 @@
+<%= form_for @dates,
+  url:location_schedule_url(@shifts.first.first.user.location),
+  method:"show" do |form|%>
+
+  <%= form.label "pick date of week you want to view" %>
+
+  <input class="datetimepicker", type="text", name="dates[date]" >
+
+  <%= form.submit "view" %>
+
+<% end %>
+
 <p> week of <%= @shifts[0][0].shift_date.beginning_of_week.strftime("%m/%d/%y") %>
 -- <%= @shifts[0][0].shift_date.end_of_week.strftime("%m/%d/%y")%> </p>
 

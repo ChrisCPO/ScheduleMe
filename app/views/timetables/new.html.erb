@@ -1,0 +1,35 @@
+<h1> New Schedule </h1>
+
+<%= form_for @schedules,
+  url: location_timetable_path(@schedules.first.user.location) do |form| %>
+
+  <table>
+    <tr>
+      <th> name </th>
+      <% @schedules.first.week_days.each do |date| %>
+          <th> <%= date.strftime("%a, %e %b %Y") %> </th>
+      <% end %>
+    </tr>
+
+    <% @schedules.each do |schedule| %>
+    <%# form.fields_for :schedules  do |schedule| %>
+      <tr>
+        <td> <%= schedule.user.formatted_name %>  </td>
+
+     <%= form.fields_for :shifts do |f| %>
+          <td>
+            <div>
+              <%= f.label "start time" %>
+            </div>
+            <div>
+              <%= f.text_field :shift_time, class:"shift_form" %>
+           </div>
+        </td>
+      </tr>
+    <% end %>
+
+    <% end %>
+  </table>
+
+    <%= form.submit "Create" %>
+<% end %>

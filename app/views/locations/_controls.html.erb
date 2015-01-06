@@ -2,10 +2,14 @@
   <div id="text">
     <p> <%= user_tagline(@location) %> </p>
     <% if current_user.manager? %>
+    <div>
       <%= link_to "Add Employee", new_location_user_path(@location) %>
     </div>
-    <div id="text">
+    <div>
+      <%= link_to "Create Schedule", new_location_timetable_path(@location) %>
+    </div>
     <% end %>
+    <div>
       <%= link_to "View Schedule", location_schedule_path(@location) %>
   </div>
 </div>

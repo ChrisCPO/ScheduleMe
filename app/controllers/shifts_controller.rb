@@ -6,6 +6,7 @@ class ShiftsController < ApplicationController
   end
 
   def create
+    raise params
     @schedule = Schedule.new(find_user, schedule_params, week_dates)
     @schedule.save
 

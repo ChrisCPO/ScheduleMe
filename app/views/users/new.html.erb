@@ -1,20 +1,27 @@
-<%= form_for @user do |form| %>
+<div>
+  <%= render "layouts/apptagline" %>
+</div>
 
-  <%= render partial: "form_errors/errors", locals: {object: @user} %>
+<div>
+  <h2> Sign Up For Account </h2>
 
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-  <div>
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-  <div>
-    <%= form.submit "Sign up" %>
-  </div>
-<% end %>
+  <%= form_for @user do |form| %>
+
+    <%= render partial: "form_errors/errors", locals: {object: @user} %>
+    <div>
+      <%= form.label "Name" %>
+      <%= form.text_field :username %>
+    </div>
+    <div>
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+    </div>
+    <div>
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+    <div>
+      <%= form.submit "Sign up" %>
+    </div>
+  <% end %>
+</div>

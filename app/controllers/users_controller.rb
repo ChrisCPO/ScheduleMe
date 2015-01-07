@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     @user.update(update_params)
 
     if @user.valid?
+      if params[:action] == "update"
+        redirect_to location_users_path(@user.location)
+        return
+      end
       redirect_to dashboard_path(@user)
     else
       render :edit

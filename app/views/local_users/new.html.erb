@@ -11,16 +11,16 @@
 
 <%= form_for [@location, @user] do |form| %>
   <div>
-    <%= form.label "Enter Employee's Name", :username %>
+    <%= form.label :username, "Employee's Name"%>
     <%= form.text_field :username %>
   </div>
 
   <div>
-    <%= form.label "Enter Employee's Email", :email %>
+    <%= form.label :email, "Employee's Email"%>
     <%= form.text_field :email %>
   </div>
 
   <div>
-    <%= form.submit "Add User" %>
+    <%= form.submit "Add" %>
   </div>
 <% end %>

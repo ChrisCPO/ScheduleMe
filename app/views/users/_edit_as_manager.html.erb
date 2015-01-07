@@ -3,12 +3,12 @@
   <%= render partial: "form_errors/errors", locals: {object: @user} %>
 
   <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form.label :username, "Name" %>
+    <%= form.text_field :username %>
   </div>
   <div>
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
   </div>
   <div>
     <%= form.label :role %>

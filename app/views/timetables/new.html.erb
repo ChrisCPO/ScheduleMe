@@ -11,19 +11,18 @@
       <% end %>
     </tr>
 
-    <% @schedules.each do |schedule| %>
-    <%# form.fields_for :schedules  do |schedule| %>
       <tr>
+      <% @schedules.each do |schedule| %>
         <td> <%= schedule.user.formatted_name %>  </td>
 
-     <%= form.fields_for :shifts do |f| %>
-          <td>
-            <div>
-              <%= f.label "start time" %>
-            </div>
-            <div>
-              <%= f.text_field :shift_time, class:"shift_form" %>
-           </div>
+        <%= form.fields_for :shifts do |f| %>
+        <td>
+          <div>
+            <%= f.label "start time" %>
+          </div>
+          <div>
+            <%= f.text_field :shift_time, class:"shift_form" %>
+          </div>
         </td>
       </tr>
     <% end %>
